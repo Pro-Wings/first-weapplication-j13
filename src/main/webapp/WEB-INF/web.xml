@@ -9,9 +9,17 @@
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>com.prowings.HelloServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentRegistrationServlet</servlet-name>
+        <servlet-class>com.prowings.StudentRegistrationServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/hello</url-pattern>
+    </servlet-mapping>  
+    <servlet-mapping>
+        <servlet-name>StudentRegistrationServlet</servlet-name>
+        <url-pattern>/StudentRegistration</url-pattern>
     </servlet-mapping>  
   
 </web-app>

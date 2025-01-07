@@ -39,5 +39,8 @@
     <h1>Hey Java Developers</h1>
     <h2>Welcome to WebApp Development!!</h2>
     <h3>Let's Build Something Amazing Together!</h3>
+    
+    <p>Click the link below to register a new Student:</p>
+    <a href="StudentRegistration.jsp">Go to Student Registration Page</a>
 </body>
 </html>
