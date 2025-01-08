@@ -1,3 +1,4 @@
+<%@page import="com.prowings.entity.Student"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
             margin: 0;
             padding: 0;
         }
-        .form-container, .retrieve-container {
+        .form-container, .retrieve-container, .student-info-container {
             max-width: 500px;
             margin: 50px auto;
             padding: 20px;
@@ -43,13 +44,28 @@
         button:hover {
             background-color: #45a049;
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
     </style>
 </head>
 <body>
     <!-- Student Registration Form -->
     <div class="form-container">
         <h1>Student Registration</h1>
-        <form action="StudentServlet" method="POST">
+        <form action="StudentRegistration" method="POST">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
@@ -72,6 +88,35 @@
 
             <button type="submit">Retrieve Info</button>
         </form>
+    </div>
+    <!-- Display Fetched Student Info -->
+    <!-- Display Fetched Student Info -->
+    <div class="student-info-container">
+        <h2>Student Info</h2>
+        <%
+            // Retrieve the student object from the request attribute
+            Student student = (Student) request.getAttribute("student");
+            if (student != null) {
+        %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= student.getName() %></td>
+                    <td><%= student.getEmail() %></td>
+                    <td><%= student.getAge() %></td>
+                </tr>
+            </tbody>
+        </table>
+        <% } else { %>
+        <p>No student information available.</p>
+        <% } %>
     </div>
 </body>
 </html>
